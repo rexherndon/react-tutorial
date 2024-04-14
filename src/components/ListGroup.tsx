@@ -1,12 +1,17 @@
 import { useState } from "react";
 
-function ListGroup() {
-  let items = ["New York", "San Fransico", "Tokyo", "London", "Paris"];
+interface Props {
+  items: string[];
+  heading: string;
+  onSelectItem: (item: string) => void;
+}
+
+function ListGroup({ items, heading, onSelectItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {/* if result of first part is true, it will move on to the second part of the and statement */}
       {items.length === 0 && <p>No item found</p>}
       <ul className="list-group">
@@ -20,6 +25,7 @@ function ListGroup() {
             key={item}
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }}
           >
             {item}
