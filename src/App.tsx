@@ -1,17 +1,14 @@
-import Alert from "./components/Alert";
-import Button from "./components/Button";
+// import Alert from "./components/Alert";
+// import Button from "./components/Button";
 import { useState } from "react";
+import ExpandableText from "./components/ExpandableText";
+import Form from "./components/Form";
 
 function App() {
-  const [alertVisible, setAlertVisibility] = useState(false);
-
+  
   return (
     <div>
-      { alertVisible && <Alert onClose={() => setAlertVisibility(false)}>Hello <span>World</span></Alert> }
-      <Button color="primary" onClick={() => setAlertVisibility(true)}>
-        Hello <span>World</span>
-      </Button>
-      
+      <Form></Form>
     </div>
   );
 }
